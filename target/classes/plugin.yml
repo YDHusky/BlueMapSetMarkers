@@ -1,0 +1,14 @@
+name: BlueMapSetMarkers
+version: '1.1'
+main: org.siberianhusy.bluemapsetmarkers.BlueMapSetMarkers
+api-version: '1.19'
+commands:
+  BlueMapSetMarkers:
+    aliases: sm
+    description: BlueMapSerMarkers help
+  BlueMapSerMarkersAdmin:
+    aliases: asm
+    description: BlueMapSetMarkers Admin help
+    permission: bluemapsetmarkers.admin
+
+

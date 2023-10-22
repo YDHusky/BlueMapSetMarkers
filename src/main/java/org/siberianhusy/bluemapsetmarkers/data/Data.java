@@ -5,6 +5,7 @@ import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.siberianhusy.bluemapsetmarkers.BlueMapSetMarkers;
+import org.siberianhusy.bluemapsetmarkers.utils.Get;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -25,6 +26,10 @@ public class Data {
     public static List<PlayerData> playerData = new ArrayList<>();
     public static File messagesFile = new File(BlueMapSetMarkers.plugin.getDataFolder(), "Messages/messages.yml");
     public static FileConfiguration messages = YamlConfiguration.loadConfiguration(messagesFile);
+
+    //世界列表
+    public static List<World> worldList = Get.getWorldList();
+
 
     public static File dataFile = new File(BlueMapSetMarkers.plugin.getDataFolder(), "Data/data.yml");
     public static FileConfiguration data = YamlConfiguration.loadConfiguration(dataFile);

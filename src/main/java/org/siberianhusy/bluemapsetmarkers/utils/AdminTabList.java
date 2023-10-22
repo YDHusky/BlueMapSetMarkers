@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public enum TabList {
-    FIRST(Arrays.asList("help","add","addhelp","del"),0,null,new int[]{1}),
+public enum AdminTabList {
+    FIRST(Arrays.asList("help","gui","search","get","set"),0,null,new int[]{1}),
     SECOND(Get.getMarkersNameList(),1,"del",new int[]{2});
 
     private final List<String> list;//返回的List
@@ -15,7 +15,7 @@ public enum TabList {
     private final String bef;//上个参数的内容
     private final int[] num;//这个参数可以出现的位置
 
-    TabList(List<String> list, int befPos, String bef, int[] num){
+    AdminTabList(List<String> list, int befPos, String bef, int[] num){
         this.list = list;
         this.befPos = befPos;
         this.bef = bef;
@@ -39,7 +39,7 @@ public enum TabList {
     }
 
     public static List<String> returnList(String[] Para, int curNum, CommandSender sender) {
-        for(TabList tab : TabList.values() ){
+        for(AdminTabList tab : AdminTabList.values() ){
             if(tab.getBefPos()-1 >= Para.length){
                 continue;
             }

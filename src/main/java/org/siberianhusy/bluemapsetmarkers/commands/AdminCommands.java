@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.siberianhusy.bluemapsetmarkers.BlueMapSetMarkers;
+import org.siberianhusy.bluemapsetmarkers.gui.MapList;
 import org.siberianhusy.bluemapsetmarkers.utils.*;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class AdminCommands implements TabExecutor {
                 else if (args.length==1){
                     //管理员GUI
                     if (args[0].equalsIgnoreCase("gui")){
-                        sender.sendMessage("&b开发中!");
+                        MapList.mapList(player,"地图列表-管理");
                         return true;
                     }
                     //查看所有标记点名字
@@ -115,6 +116,6 @@ public class AdminCommands implements TabExecutor {
 
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        return TabList.returnList(strings,strings.length,commandSender);
+        return AdminTabList.returnList(strings,strings.length,commandSender);
     }
 }

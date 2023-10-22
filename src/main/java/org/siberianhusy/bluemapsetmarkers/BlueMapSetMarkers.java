@@ -7,6 +7,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.siberianhusy.bluemapsetmarkers.commands.AdminCommands;
 import org.siberianhusy.bluemapsetmarkers.commands.PlayerCommands;
 import org.siberianhusy.bluemapsetmarkers.data.Data;
+import org.siberianhusy.bluemapsetmarkers.events.AdminGUIEvent;
+import org.siberianhusy.bluemapsetmarkers.events.PlayerGUIEvent;
 import org.siberianhusy.bluemapsetmarkers.events.SignWatcher;
 
 import java.util.Objects;
@@ -41,6 +43,9 @@ public class BlueMapSetMarkers extends JavaPlugin {
         //注册自动补全
         Objects.requireNonNull(Bukkit.getPluginCommand("BlueMapSetMarkers")).setTabCompleter(new PlayerCommands());
         Objects.requireNonNull(Bukkit.getPluginCommand("BlueMapSerMarkersAdmin")).setTabCompleter(new AdminCommands());
+        //注册事件
+        Bukkit.getPluginManager().registerEvents(new PlayerGUIEvent(),this);
+        Bukkit.getPluginManager().registerEvents(new AdminGUIEvent(),this);
         Bukkit.getPluginManager().registerEvents(new SignWatcher(), this);
         this.getLogger().info("BlueMapMarkers加载完成！欢迎使用！");
     }

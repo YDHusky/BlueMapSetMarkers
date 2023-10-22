@@ -5,6 +5,7 @@ import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.siberianhusy.bluemapsetmarkers.gui.MapList;
 import org.siberianhusy.bluemapsetmarkers.utils.*;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public class PlayerCommands implements TabExecutor {
                 }
                 //打开标记点GUI
                 else if (args[0].equalsIgnoreCase("gui")) {
-                    sender.sendMessage("&b开发中!");
+                    MapList.mapList(player,"地图列表-玩家");
                     return true;
                 }
                 //若参数不为以上两个则返回帮助列表
@@ -88,6 +89,6 @@ public class PlayerCommands implements TabExecutor {
 
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        return TabList.returnList(strings,strings.length,commandSender);
+        return PlayerTabList.returnList(strings,strings.length,commandSender);
     }
 }

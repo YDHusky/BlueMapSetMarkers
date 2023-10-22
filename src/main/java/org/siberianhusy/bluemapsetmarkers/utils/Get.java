@@ -1,6 +1,7 @@
 package org.siberianhusy.bluemapsetmarkers.utils;
 
 import com.flowpowered.math.vector.Vector3d;
+import com.sun.org.apache.bcel.internal.generic.PUSH;
 import de.bluecolored.bluemap.api.markers.Marker;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -10,6 +11,7 @@ import org.siberianhusy.bluemapsetmarkers.BlueMapSetMarkers;
 import org.siberianhusy.bluemapsetmarkers.data.Data;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -101,5 +103,47 @@ public class Get {
             }
         }
         return -1;
+    }
+    //获取世界列表
+    public static List<World> getWorldList(){
+        return new ArrayList<>(Bukkit.getWorlds());
+    }
+    //获取世界列表中世界对应索引,不存在返回-1
+    public static int getWorldListIndex(World world){
+        int count = 0;
+        for (World world1:Data.worldList){
+            if (world1.getName().equals(world.getName())){
+                return count;
+            }
+            count++;
+        }
+        return -1;
+    }
+    //获取标记列表
+    public static List<String> getMarkerList(World world){
+        List<String> markerList = new ArrayList<>();
+        for (Map.Entry<String,Marker> entry : Data.worldMarkers.get(world).getMarkers().entrySet()){
+            markerList.add(entry.getKey());
+        }
+        return markerList;
+    }
+    //获取标记列表中标记对应索引，不存在返回-1
+    public static int getMarkerListIndex(World world,String markerName){
+        int count = 0;
+        for (String name : getMarkerList(world)){
+            if (name.equals(markerName)){
+                return count;
+            }
+        }
+        return -1;
+    }
+    //获取标记名对应的标记
+    public static Marker getMarker(World world,String name){
+        for (Map.Entry<String,Marker> entry : Data.worldMarkers.get(world).getMarkers().entrySet()){
+            if (entry.getKey().equals(name)){
+                return entry.getValue();
+            }
+        }
+        return null;
     }
 }

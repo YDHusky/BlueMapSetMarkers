@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.siberianhusy.bluemapsetmarkers.data.Data;
 
 public class MapList {
     //地图列表GUI(玩家，GUI标题)
@@ -18,13 +19,11 @@ public class MapList {
         //设置计数器
         int count = 0;
         //遍历世界
-        for (World world : Bukkit.getWorlds()){
-            //设置地图图标元数据
+        for (int i = 0; i < Data.worldList.size(); i++) {
             ItemMeta worldMeta = worldItem.getItemMeta();
-            worldMeta.setDisplayName(world.getName());
+            worldMeta.setDisplayName(Data.worldList.get(i).getName());
             worldItem.setItemMeta(worldMeta);
-            mapList.setItem(count,worldItem);
-            count++;
+            mapList.setItem(i,worldItem);
         }
         //打开地图列表
         player.openInventory(mapList);

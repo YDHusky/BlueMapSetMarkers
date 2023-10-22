@@ -1,6 +1,5 @@
 package org.siberianhusy.bluemapsetmarkers.gui;
 
-import de.bluecolored.bluemap.api.markers.Marker;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -8,13 +7,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.siberianhusy.bluemapsetmarkers.data.Data;
 import org.siberianhusy.bluemapsetmarkers.utils.Get;
 import org.siberianhusy.bluemapsetmarkers.utils.Replace;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class AdminGUI {
     public static void adminGUI(Player player,String titie,World world){
@@ -24,14 +20,18 @@ public class AdminGUI {
         //设置计数器
         int count=0;
         //遍历世界标记
-        for (Map.Entry<String, Marker> entry : Data.worldMarkers.get(world).getMarkers().entrySet()){
+        List<String> markers = Get.getMarkerList(world);
+        for (int i = 0; i < markers.size(); i++) {
             ItemMeta markerMeta = markerItem.getItemMeta();
-            markerMeta.setDisplayName(entry.getKey());
-            List<String> lore = Get.getMarkerInfo(entry.getKey(),world);
-            lore.add(Replace.replaceColor("&c左键传送到标记点"));
-            lore.add(Replace.replaceColor("&c右键删除标记点"));
-            adminGUI.setItem(count,markerItem);
-            count++;
+            markerMeta.setDisplayName(markers.get(i));
+            List<String> lore = Get.getMarkerInfo(markers.get(i),world);
+            lore.add("&c左键传送到标记点");
+            lore.add("&c右键删除标记点");
+            lore = Replace.replaceColor(lore);
+            markerMeta.setLore(lore);
+            markerItem.setItemMeta(markerMeta);
+            adminGUI.setItem(i,markerItem);
         }
+        player.openInventory(adminGUI);
     }
 }

@@ -42,3 +42,5 @@ permission: "&c你没有权限！"
 reload: "插件重载完成！"
 #设置默认图标链接
 setIcon: "默认标记图片已更换"
+#传送到标记点
+teleport: "&b已传送到{name}!"

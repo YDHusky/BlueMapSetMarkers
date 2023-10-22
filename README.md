@@ -30,8 +30,7 @@ icon默认图片链接可在config.yml修改
 ### 注意事项
 本插件需要以[BlueMap](https://github.com/BlueMap-Minecraft/BlueMap)作为前置插件  
 本插件使用1.19的paper-api，但1.20测试可用  
-其他版本未测试  
-GUI暂未开发，后期推出  
+其他版本未测试   
 管理员权限节点：`bluemapsetmarkers.admin`
 
 >欢迎各位对插件提出建议反馈bug(QQ:3088506834)

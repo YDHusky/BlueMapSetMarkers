@@ -22,7 +22,7 @@ import java.util.Objects;
 public class Get {
     //通过直链获取图片信息
     public static BufferedImage getBufferedImage(String imgUrl) {
-        URL url = null;
+        URL url;
         InputStream is = null;
         BufferedImage img = null;
         try {
@@ -63,7 +63,7 @@ public class Get {
     }
     //获取config.yml中的字符串
     public static String getConfigString(String key){
-        return BlueMapSetMarkers.bmsm.getConfig().getString(key);
+        return BlueMapSetMarkers.plugin.getConfig().getString(key);
     }
     //获取世界中已经加载的标记
     public static List<String> getMarkersNameList(){

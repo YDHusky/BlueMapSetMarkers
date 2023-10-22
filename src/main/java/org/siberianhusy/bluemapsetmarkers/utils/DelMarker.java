@@ -3,7 +3,6 @@ package org.siberianhusy.bluemapsetmarkers.utils;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.siberianhusy.bluemapsetmarkers.data.Data;
-import org.siberianhusy.bluemapsetmarkers.data.PlayerData;
 
 
 public class DelMarker {

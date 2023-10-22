@@ -1,22 +1,15 @@
 package org.siberianhusy.bluemapsetmarkers.commands;
 
 import org.bukkit.Location;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabCompleter;
+import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.siberianhusy.bluemapsetmarkers.utils.AddMarker;
-import org.siberianhusy.bluemapsetmarkers.utils.DelMarker;
-import org.siberianhusy.bluemapsetmarkers.utils.Get;
-import org.siberianhusy.bluemapsetmarkers.utils.SendMessages;
+import org.siberianhusy.bluemapsetmarkers.utils.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerCommands implements CommandExecutor {
+public class PlayerCommands implements TabExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
         //帮助命令(当args长度为零或者args长度为1且值等于help时)
@@ -93,4 +86,8 @@ public class PlayerCommands implements CommandExecutor {
         return false;
     }
 
+    @Override
+    public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
+        return TabList.returnList(strings,strings.length,commandSender);
+    }
 }

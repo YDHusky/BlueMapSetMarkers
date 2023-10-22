@@ -9,15 +9,17 @@ import org.siberianhusy.bluemapsetmarkers.commands.PlayerCommands;
 import org.siberianhusy.bluemapsetmarkers.data.Data;
 import org.siberianhusy.bluemapsetmarkers.events.SignWatcher;
 
+import java.util.Objects;
+
 import static org.siberianhusy.bluemapsetmarkers.utils.LoadData.*;
 
 public class BlueMapSetMarkers extends JavaPlugin {
-    public static BlueMapSetMarkers bmsm;
+    public static BlueMapSetMarkers plugin;
 
     @Override
     public void onEnable() {
         // 插件启动执行
-        bmsm = this;
+        plugin = this;
         this.saveResource("Data/data.yml",false);
         //创建标记数据储存文件
         createFiles();
@@ -34,8 +36,11 @@ public class BlueMapSetMarkers extends JavaPlugin {
         this.saveResource("Messages/messages.yml",false);
         loadPlayerData();
         //注册玩家指令
-        Bukkit.getPluginCommand("BlueMapSetMarkers").setExecutor(new PlayerCommands());
-        Bukkit.getPluginCommand("BlueMapSerMarkersAdmin").setExecutor(new AdminCommands());
+        Objects.requireNonNull(Bukkit.getPluginCommand("BlueMapSetMarkers")).setExecutor(new PlayerCommands());
+        Objects.requireNonNull(Bukkit.getPluginCommand("BlueMapSerMarkersAdmin")).setExecutor(new AdminCommands());
+        //注册自动补全
+        Objects.requireNonNull(Bukkit.getPluginCommand("BlueMapSetMarkers")).setTabCompleter(new PlayerCommands());
+        Objects.requireNonNull(Bukkit.getPluginCommand("BlueMapSerMarkersAdmin")).setTabCompleter(new AdminCommands());
         Bukkit.getPluginManager().registerEvents(new SignWatcher(), this);
         this.getLogger().info("BlueMapMarkers加载完成！欢迎使用！");
     }

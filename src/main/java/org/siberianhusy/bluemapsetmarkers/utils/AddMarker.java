@@ -2,7 +2,6 @@ package org.siberianhusy.bluemapsetmarkers.utils;
 
 import com.flowpowered.math.vector.Vector2i;
 import com.flowpowered.math.vector.Vector3d;
-import de.bluecolored.bluemap.api.markers.Marker;
 import de.bluecolored.bluemap.api.markers.POIMarker;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -40,7 +39,6 @@ public class AddMarker {
         playerData.setName(name);
         Data.playerData.add(playerData);
         SendMessages.sendMessagesString(player,"add",name);
-        return;
     }
     public static boolean addMarker(Location location, String name, String icon, Player player){
         if (Judge.judgeMarkerName(name)){

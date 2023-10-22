@@ -1,16 +1,17 @@
 package org.siberianhusy.bluemapsetmarkers.commands;
 
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.siberianhusy.bluemapsetmarkers.BlueMapSetMarkers;
 import org.siberianhusy.bluemapsetmarkers.utils.*;
 
 import java.util.List;
 
-public class AdminCommands implements CommandExecutor {
+public class AdminCommands implements TabExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
@@ -34,11 +35,11 @@ public class AdminCommands implements CommandExecutor {
                     //查看所有标记点名字
                     else if (args[0].equalsIgnoreCase("search")){
                         List<String> nameList = Get.getMarkersNameList();
-                        String message = "&c现有的标记点:&9";
+                        StringBuilder message = new StringBuilder("&c现有的标记点:&9");
                         for (String mes : nameList){
-                            message+=mes+" ";
+                            message.append(mes).append(" ");
                         }
-                        sender.sendMessage(Replace.replaceColor(message));
+                        sender.sendMessage(Replace.replaceColor(message.toString()));
                         return true;
                     }
                     //重载插件
@@ -67,7 +68,7 @@ public class AdminCommands implements CommandExecutor {
                     }
                     //设置标记默认图标
                     else if (args[0].equalsIgnoreCase("set")){
-                        BlueMapSetMarkers.bmsm.getConfig().set("icon",args[1]);
+                        BlueMapSetMarkers.plugin.getConfig().set("icon",args[1]);
                         LoadData.reloadConfig();
                         SendMessages.sendMessagesString(sender,"setIcon");
                         return true;
@@ -110,5 +111,10 @@ public class AdminCommands implements CommandExecutor {
                 return true;
             }
         }
+    }
+
+    @Override
+    public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
+        return TabList.returnList(strings,strings.length,commandSender);
     }
 }

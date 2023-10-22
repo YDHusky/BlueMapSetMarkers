@@ -23,9 +23,9 @@ public class Data {
 
     //创建数据配置
     public static List<PlayerData> playerData = new ArrayList<>();
-    public static File messagesFile = new File(BlueMapSetMarkers.bmsm.getDataFolder(), "Messages/messages.yml");
+    public static File messagesFile = new File(BlueMapSetMarkers.plugin.getDataFolder(), "Messages/messages.yml");
     public static FileConfiguration messages = YamlConfiguration.loadConfiguration(messagesFile);
 
-    public static File dataFile = new File(BlueMapSetMarkers.bmsm.getDataFolder(), "Data/data.yml");
+    public static File dataFile = new File(BlueMapSetMarkers.plugin.getDataFolder(), "Data/data.yml");
     public static FileConfiguration data = YamlConfiguration.loadConfiguration(dataFile);
 }

@@ -2,7 +2,6 @@ package org.siberianhusy.bluemapsetmarkers.gui;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -16,8 +15,6 @@ public class MapList {
         Inventory mapList = Bukkit.createInventory(player,9,title);
         //设置地图的图标
         ItemStack worldItem = new ItemStack(Material.GRASS_BLOCK);
-        //设置计数器
-        int count = 0;
         //遍历世界
         for (int i = 0; i < Data.worldList.size(); i++) {
             ItemMeta worldMeta = worldItem.getItemMeta();

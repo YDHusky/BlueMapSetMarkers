@@ -12,10 +12,8 @@ import org.siberianhusy.bluemapsetmarkers.data.Data;
 import org.siberianhusy.bluemapsetmarkers.gui.AdminGUI;
 import org.siberianhusy.bluemapsetmarkers.utils.DelMarker;
 import org.siberianhusy.bluemapsetmarkers.utils.Get;
-import org.siberianhusy.bluemapsetmarkers.utils.Replace;
 import org.siberianhusy.bluemapsetmarkers.utils.SendMessages;
 
-import javax.script.ScriptEngine;
 import java.util.List;
 
 public class AdminGUIEvent implements Listener {

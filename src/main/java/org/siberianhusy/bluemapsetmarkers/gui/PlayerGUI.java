@@ -13,10 +13,8 @@ import org.siberianhusy.bluemapsetmarkers.data.PlayerData;
 import org.siberianhusy.bluemapsetmarkers.utils.Get;
 import org.siberianhusy.bluemapsetmarkers.utils.Replace;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 public class PlayerGUI {
     //玩家标记GUI
@@ -31,13 +29,17 @@ public class PlayerGUI {
         for (Map.Entry<String, Marker> entry : Data.worldMarkers.get(world).getMarkers().entrySet()){
             ItemMeta markerMeta = markerItem.getItemMeta();
             markerMeta.setDisplayName(entry.getKey());
-            List<String> lore = new ArrayList<>();
+            List<String> lore;
             lore = Get.getMarkerInfo(entry.getKey(), world);
             PlayerData playerData = Data.playerData.get(Get.getPlayerData(entry.getKey()));
             if (playerData.getPlayer().equals(player.getName())){
-                lore.add("&c右键删除该标记!");
+                if (lore != null) {
+                    lore.add("&c右键删除该标记!");
+                }
             }
-            markerMeta.setLore(Replace.replaceColor(lore));
+            if (lore != null) {
+                markerMeta.setLore(Replace.replaceColor(lore));
+            }
             markerItem.setItemMeta(markerMeta);
             playerGUI.setItem(count,markerItem);
             count++;

@@ -1,22 +1,15 @@
 package org.siberianhusy.bluemapsetmarkers.events;
 
 import org.bukkit.World;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.InventoryView;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.siberianhusy.bluemapsetmarkers.data.Data;
 import org.siberianhusy.bluemapsetmarkers.gui.PlayerGUI;
 import org.siberianhusy.bluemapsetmarkers.utils.DelMarker;
 import org.siberianhusy.bluemapsetmarkers.utils.Get;
-import org.siberianhusy.bluemapsetmarkers.utils.Replace;
 
-import java.time.DayOfWeek;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PlayerGUIEvent implements Listener {

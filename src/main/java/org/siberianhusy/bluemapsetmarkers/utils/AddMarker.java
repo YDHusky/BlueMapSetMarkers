@@ -13,17 +13,7 @@ import java.awt.image.BufferedImage;
 import static org.siberianhusy.bluemapsetmarkers.utils.Get.getBufferedImage;
 
 public class AddMarker {
-    //添加标记(对SWUSTMCTOWN提供)
-    public static void addMarker(Location location, String name, String icon){
-        Vector2i anchor;
-        BufferedImage image = getBufferedImage(icon);
-        int width = image.getWidth();
-        int height = image.getHeight();
-        anchor = new Vector2i(height/2, width/2);
-        Vector3d pos = new Vector3d(location.getX(), location.getY(), location.getZ());
-        POIMarker marker = POIMarker.builder().label(name).position(pos).maxDistance(100000).icon(icon,anchor).build();
-        Data.worldMarkers.get(location.getWorld()).put(name, marker);
-    }
+
     public static void addMarker(Location location,String name,String icon,Player player,Vector2i anchor){
         if (Judge.judgeMarkerName(name)){
             SendMessages.sendMessagesString(player,"Error.name",name);

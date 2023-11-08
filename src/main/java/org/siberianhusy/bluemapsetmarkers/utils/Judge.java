@@ -1,6 +1,5 @@
 package org.siberianhusy.bluemapsetmarkers.utils;
 
-import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.siberianhusy.bluemapsetmarkers.data.Data;
 import org.siberianhusy.bluemapsetmarkers.data.PlayerData;
@@ -9,7 +8,7 @@ import java.util.List;
 
 public class Judge {
     //判断标签名字是否存在，若存在则返回true
-    protected static boolean judgeMarkerName(String name){
+    public static boolean judgeMarkerName(String name){
         List<String> MarkersName = Get.getMarkersNameList();
         for (String s : MarkersName) {
             if (s.equals(name)) {

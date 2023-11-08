@@ -10,5 +10,3 @@ commands:
     aliases: asm
     description: BlueMapSetMarkers Admin help
     permission: bluemapsetmarkers.admin
-
-

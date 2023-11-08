@@ -1,7 +1,6 @@
 package org.siberianhusy.bluemapsetmarkers.utils;
 
 import com.flowpowered.math.vector.Vector3d;
-import com.sun.org.apache.bcel.internal.generic.PUSH;
 import de.bluecolored.bluemap.api.markers.Marker;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -11,7 +10,6 @@ import org.siberianhusy.bluemapsetmarkers.BlueMapSetMarkers;
 import org.siberianhusy.bluemapsetmarkers.data.Data;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;

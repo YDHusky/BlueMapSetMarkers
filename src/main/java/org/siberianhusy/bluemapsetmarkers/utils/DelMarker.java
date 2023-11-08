@@ -6,15 +6,6 @@ import org.siberianhusy.bluemapsetmarkers.data.Data;
 
 
 public class DelMarker {
-    //删除标记点，对SWUSTMCTOWN提供
-    public static boolean delMarker(String name, World world){
-        if (!Judge.judgeMarkerName(name)){
-            return false;
-        }else {
-            Data.worldMarkers.get(world).getMarkers().remove(name);
-            return true;
-        }
-    }
     //删除标记点
     public static void delMarker(String name, World world,Player player){
         if (!Judge.judgeMarkerName(name)){

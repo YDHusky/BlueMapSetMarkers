@@ -1,16 +1,6 @@
 package org.siberianhusy.bluemapsetmarkers.data;
 
 
-import de.bluecolored.bluemap.api.markers.Marker;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentMap;
-
 public class PlayerData {
     private String player;
     private String name;

@@ -2,7 +2,7 @@
 ### 玩家指令
 - /sm help              插件帮助
 - /sm gui               打开标记点GUI
-- /sm add [name] [icon] 添加标记点
+- /sm add [name] &lt;icon&gt; 添加标记点
 - /sm addhelp           添加标记点帮助
 - /sm del [name]        删除标记点
 

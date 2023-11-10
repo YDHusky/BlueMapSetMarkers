@@ -8,7 +8,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.siberianhusy.bluemapsetmarkers.data.Data;
 import org.siberianhusy.bluemapsetmarkers.gui.PlayerGUI;
 import org.siberianhusy.bluemapsetmarkers.utils.DelMarker;
-import org.siberianhusy.bluemapsetmarkers.utils.Get;
+import org.siberianhusy.bluemapsetmarkers.utils.Util;
 
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class PlayerGUIEvent implements Listener {
         if (event.getWhoClicked().getOpenInventory().getTitle().equals("标记列表-玩家")){
             event.setCancelled(true);
             Player player = (Player) event.getWhoClicked();
-            List<String> markerList = Get.getMarkerList(world);
+            List<String> markerList = Util.getMarkerList(world);
             if (event.getRawSlot()<=markerList.size()){
                 if (event.isRightClick()){
                     DelMarker.delMarker(markerList.get(event.getRawSlot()),world,player);

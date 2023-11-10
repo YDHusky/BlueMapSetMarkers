@@ -1,14 +1,12 @@
 package org.siberianhusy.bluemapsetmarkers.utils;
 
-import org.bukkit.command.CommandSender;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public enum PlayerTabList {
     FIRST(Arrays.asList("help","add","addhelp","del","gui"),0,null,new int[]{1}),
-    SECOND(Get.getMarkersNameList(),1,"del",new int[]{2});
+    SECOND(Util.getMarkersNameList(),1,"del",new int[]{2});
 
     private final List<String> list;//返回的List
     private final int befPos;//识别的上个参数的位
@@ -38,7 +36,7 @@ public enum PlayerTabList {
         return befPos;
     }
 
-    public static List<String> returnList(String[] Para, int curNum, CommandSender sender) {
+    public static List<String> returnList(String[] Para, int curNum) {
         for(PlayerTabList tab : PlayerTabList.values() ){
             if(tab.getBefPos()-1 >= Para.length){
                 continue;

@@ -3,9 +3,7 @@ package org.siberianhusy.bluemapsetmarkers.utils;
 import com.flowpowered.math.vector.Vector3d;
 import de.bluecolored.bluemap.api.markers.Marker;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.World;
-import org.bukkit.entity.Player;
 import org.siberianhusy.bluemapsetmarkers.BlueMapSetMarkers;
 import org.siberianhusy.bluemapsetmarkers.data.Data;
 
@@ -19,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class Get {
+public class Util {
     //通过直链获取图片信息
     public static BufferedImage getBufferedImage(String imgUrl) {
         URL url;
@@ -42,10 +40,6 @@ public class Get {
             }
         }
         return img;
-    }
-    //获取玩家Location
-    public static Location playerGetLocation(Player player){
-        return player.getLocation();
     }
 
     //获取messages。yml中的列表
@@ -106,17 +100,6 @@ public class Get {
     public static List<World> getWorldList(){
         return new ArrayList<>(Bukkit.getWorlds());
     }
-    //获取世界列表中世界对应索引,不存在返回-1
-    public static int getWorldListIndex(World world){
-        int count = 0;
-        for (World world1:Data.worldList){
-            if (world1.getName().equals(world.getName())){
-                return count;
-            }
-            count++;
-        }
-        return -1;
-    }
     //获取标记列表
     public static List<String> getMarkerList(World world){
         List<String> markerList = new ArrayList<>();
@@ -124,16 +107,6 @@ public class Get {
             markerList.add(entry.getKey());
         }
         return markerList;
-    }
-    //获取标记列表中标记对应索引，不存在返回-1
-    public static int getMarkerListIndex(World world,String markerName){
-        int count = 0;
-        for (String name : getMarkerList(world)){
-            if (name.equals(markerName)){
-                return count;
-            }
-        }
-        return -1;
     }
     //获取标记名对应的标记
     public static Marker getMarker(World world,String name){

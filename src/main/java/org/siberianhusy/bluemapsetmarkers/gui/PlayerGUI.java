@@ -10,8 +10,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.siberianhusy.bluemapsetmarkers.data.Data;
 import org.siberianhusy.bluemapsetmarkers.data.PlayerData;
-import org.siberianhusy.bluemapsetmarkers.utils.Get;
 import org.siberianhusy.bluemapsetmarkers.utils.Replace;
+import org.siberianhusy.bluemapsetmarkers.utils.Util;
 
 import java.util.List;
 import java.util.Map;
@@ -30,8 +30,8 @@ public class PlayerGUI {
             ItemMeta markerMeta = markerItem.getItemMeta();
             markerMeta.setDisplayName(entry.getKey());
             List<String> lore;
-            lore = Get.getMarkerInfo(entry.getKey(), world);
-            PlayerData playerData = Data.playerData.get(Get.getPlayerData(entry.getKey()));
+            lore = Util.getMarkerInfo(entry.getKey(), world);
+            PlayerData playerData = Data.playerData.get(Util.getPlayerData(entry.getKey()));
             if (playerData.getPlayer().equals(player.getName())){
                 if (lore != null) {
                     lore.add("&c右键删除该标记!");

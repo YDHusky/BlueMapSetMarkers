@@ -10,9 +10,14 @@ import org.siberianhusy.bluemapsetmarkers.utils.Judge;
 
 import java.awt.image.BufferedImage;
 
-import static org.siberianhusy.bluemapsetmarkers.utils.Get.getBufferedImage;
+import static org.siberianhusy.bluemapsetmarkers.utils.Util.getBufferedImage;
 
 public class Api {
+    /**
+     * @param name  要删除的标记名称
+     * @param world 要删除的标记所在世界
+     * @return 返回 true 删除成功
+     */
     //删除标记点
     public static boolean delMarker(String name, World world){
         if (!Judge.judgeMarkerName(name)){
@@ -23,6 +28,11 @@ public class Api {
         }
     }
 
+    /**
+     * @param location Location
+     * @param name 要添加的标记名称
+     * @param icon 要添加的标记图标
+     */
     //添加标记
     public static void addMarker(Location location, String name, String icon){
         Vector2i anchor;

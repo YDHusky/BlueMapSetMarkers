@@ -35,7 +35,7 @@ public class AdminCommands implements TabExecutor {
                     }
                     //查看所有标记点名字
                     else if (args[0].equalsIgnoreCase("search")){
-                        List<String> nameList = Get.getMarkersNameList();
+                        List<String> nameList = Util.getMarkersNameList();
                         StringBuilder message = new StringBuilder("&c现有的标记点:&9");
                         for (String mes : nameList){
                             message.append(mes).append(" ");
@@ -116,6 +116,6 @@ public class AdminCommands implements TabExecutor {
 
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        return AdminTabList.returnList(strings,strings.length,commandSender);
+        return AdminTabList.returnList(strings,strings.length);
     }
 }

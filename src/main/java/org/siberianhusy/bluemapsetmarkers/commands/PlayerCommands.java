@@ -47,7 +47,7 @@ public class PlayerCommands implements TabExecutor {
                 //添加默认图标的标记
                 if (args[0].equalsIgnoreCase("add")){
                     Location location = player.getLocation();
-                    AddMarker.addMarker(location,args[1],Get.getConfigString("iconUrl"),player);
+                    AddMarker.addMarker(location,args[1], Util.getConfigString("iconUrl"),player);
                     return true;
                 }
                 //删除标记
@@ -68,19 +68,17 @@ public class PlayerCommands implements TabExecutor {
                     Location location = player.getLocation();
                     AddMarker.addMarker(location,args[1],args[2],player);
                     SendMessages.sendMessagesString(sender,"add",args[1]);
-                    return true;
                 }
                 //否则返回帮助列表
                 else {
                     SendMessages.sendMessagesList(sender,"help");
-                    return true;
                 }
             }
             //返回帮助列表
             else {
                 SendMessages.sendMessagesList(sender,"help");
-                return true;
             }
+            return true;
         }
         //当命令发送者不为玩家时执行
         else {
@@ -91,6 +89,6 @@ public class PlayerCommands implements TabExecutor {
 
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        return PlayerTabList.returnList(strings,strings.length,commandSender);
+        return PlayerTabList.returnList(strings,strings.length);
     }
 }

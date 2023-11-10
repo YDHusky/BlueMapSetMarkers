@@ -11,8 +11,8 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.siberianhusy.bluemapsetmarkers.data.Data;
 import org.siberianhusy.bluemapsetmarkers.gui.AdminGUI;
 import org.siberianhusy.bluemapsetmarkers.utils.DelMarker;
-import org.siberianhusy.bluemapsetmarkers.utils.Get;
 import org.siberianhusy.bluemapsetmarkers.utils.SendMessages;
+import org.siberianhusy.bluemapsetmarkers.utils.Util;
 
 import java.util.List;
 
@@ -34,9 +34,9 @@ public class AdminGUIEvent implements Listener {
         if (event.getWhoClicked().getOpenInventory().getTitle().equals("标记列表-管理")){
             event.setCancelled(true);
             Player player = (Player) event.getWhoClicked();
-            List<String> markers = Get.getMarkerList(world);
+            List<String> markers = Util.getMarkerList(world);
             if (event.getRawSlot()<= markers.size()){
-                Marker marker = Get.getMarker(world,markers.get(event.getRawSlot()));
+                Marker marker = Util.getMarker(world,markers.get(event.getRawSlot()));
                 if (event.isLeftClick()){
                     Vector3d pos ;
                     if (marker!=null){

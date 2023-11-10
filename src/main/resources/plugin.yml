@@ -1,7 +1,12 @@
 name: BlueMapSetMarkers
+description: "A BlueMap addition plugin. Allows you to manage markers"
+website: https://github.com/Atleisure/BlueMapSetMarkers
+authors: [Atleisure, xinyihl]
 version: '${project.version}'
 main: org.siberianhusy.bluemapsetmarkers.BlueMapSetMarkers
 api-version: '1.19'
+depend: [ BlueMap ]
+
 commands:
   BlueMapSetMarkers:
     aliases: sm

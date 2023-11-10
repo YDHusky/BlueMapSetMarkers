@@ -63,7 +63,7 @@ public class AdminCommands implements TabExecutor {
                         return true;
                     }
                     //获取标记点信息
-                    else if (args[0].equalsIgnoreCase("get")){
+                    else if (args[0].equalsIgnoreCase("info")){
                         SendMessages.sendMarkerInfo(args[1],player);
                         return true;
                     }
@@ -108,7 +108,6 @@ public class AdminCommands implements TabExecutor {
             //其他指令需要在游戏中使用
             else {
                 sender.sendMessage(Replace.replaceColor("&c其他指令需要在游戏中使用"));
-
                 return true;
             }
         }

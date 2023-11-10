@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum AdminTabList {
-    FIRST(Arrays.asList("help","gui","search","get","set"),0,null,new int[]{1}),
+    FIRST(Arrays.asList("help","gui","search","info","set"),0,null,new int[]{1}),
     SECOND(Util.getMarkersNameList(),1,"del",new int[]{2});
 
     private final List<String> list;//返回的List

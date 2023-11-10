@@ -9,7 +9,7 @@ import java.util.List;
 public class Judge {
     //判断标签名字是否存在，若存在则返回true
     public static boolean judgeMarkerName(String name){
-        List<String> MarkersName = Get.getMarkersNameList();
+        List<String> MarkersName = Util.getMarkersNameList();
         for (String s : MarkersName) {
             if (s.equals(name)) {
                 return true;

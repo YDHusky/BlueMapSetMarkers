@@ -1,12 +1,26 @@
 name: BlueMapSetMarkers
+prefix: BMSMarkers
+description: "A BlueMap addition plugin. Allows you to manage markers"
+website: https://github.com/Atleisure/BlueMapSetMarkers
+authors: [Atleisure, xinyihl]
 version: '${project.version}'
 main: org.siberianhusy.bluemapsetmarkers.BlueMapSetMarkers
 api-version: '1.19'
+depend: [ BlueMap ]
+
 commands:
   BlueMapSetMarkers:
     aliases: sm
-    description: BlueMapSerMarkers help
+    description: 玩家命令
+    permission: bluemapsetmarkers.player
   BlueMapSerMarkersAdmin:
     aliases: asm
-    description: BlueMapSetMarkers Admin help
+    description: 管理员命令
     permission: bluemapsetmarkers.admin
+permissions:
+  bluemapsetmarkers.player:
+    description: 玩家权限
+    default: true
+  bluemapsetmarkers.admin:
+    description: 管理员权限
+    default: op

@@ -10,7 +10,7 @@ import org.siberianhusy.bluemapsetmarkers.data.PlayerData;
 
 import java.awt.image.BufferedImage;
 
-import static org.siberianhusy.bluemapsetmarkers.utils.Get.getBufferedImage;
+import static org.siberianhusy.bluemapsetmarkers.utils.Util.getBufferedImage;
 
 public class AddMarker {
 

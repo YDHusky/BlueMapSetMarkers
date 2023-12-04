@@ -7,7 +7,7 @@ import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.siberianhusy.bluemapsetmarkers.gui.MapList;
+import org.siberianhusy.bluemapsetmarkers.gui.MapListGUI;
 import org.siberianhusy.bluemapsetmarkers.utils.*;
 
 import java.util.List;
@@ -33,7 +33,8 @@ public class PlayerCommands implements TabExecutor {
                 }
                 //打开标记点GUI
                 else if (args[0].equalsIgnoreCase("gui")) {
-                    MapList.mapList(player,"地图列表-玩家");
+                    //MapList.mapList(player,"地图列表-玩家");
+                    new MapListGUI(player).openInventory();
                     return true;
                 }
                 //若参数不为以上两个则返回帮助列表

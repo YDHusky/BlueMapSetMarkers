@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.siberianhusy.bluemapsetmarkers.BlueMapSetMarkers;
-import org.siberianhusy.bluemapsetmarkers.gui.MapList;
+import org.siberianhusy.bluemapsetmarkers.gui.MapListGUI;
 import org.siberianhusy.bluemapsetmarkers.utils.*;
 
 import java.util.List;
@@ -30,7 +30,8 @@ public class AdminCommands implements TabExecutor {
                 else if (args.length==1){
                     //管理员GUI
                     if (args[0].equalsIgnoreCase("gui")){
-                        MapList.mapList(player,"地图列表-管理");
+                        //MapList.mapList(player,"地图列表-管理");
+                        new MapListGUI(player).openInventory();
                         return true;
                     }
                     //查看所有标记点名字

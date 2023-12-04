@@ -10,6 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.siberianhusy.bluemapsetmarkers.data.Data;
 import org.siberianhusy.bluemapsetmarkers.gui.AdminGUI;
+import org.siberianhusy.bluemapsetmarkers.gui.MapListGUI;
 import org.siberianhusy.bluemapsetmarkers.utils.DelMarker;
 import org.siberianhusy.bluemapsetmarkers.utils.SendMessages;
 import org.siberianhusy.bluemapsetmarkers.utils.Util;
@@ -20,18 +21,24 @@ public class AdminGUIEvent implements Listener {
     private static World world = null;
     @EventHandler
     public static void adminClick(InventoryClickEvent event){
-        if (event.getWhoClicked().getOpenInventory().getTitle().equals("地图列表-管理")){
+        if(event.getInventory().getHolder()==null)
+            return;
+        if(event.getInventory().getHolder() instanceof MapListGUI || event.getWhoClicked().hasPermission("bluemapsetmarkers.admin")) {
             event.setCancelled(true);
             Player player = (Player) event.getWhoClicked();
             if (event.getRawSlot()<= Data.worldList.size()){
                 world = Data.worldList.get(event.getRawSlot());
-                AdminGUI.adminGUI(player,"标记列表-管理",world);
+                new AdminGUI(player,world).openInventory();
+                //AGUI.adminGUI(player,"标记列表-管理",world);
             }
         }
     }
     @EventHandler
     public static void adminMarkerGUIClick(InventoryClickEvent event){
-        if (event.getWhoClicked().getOpenInventory().getTitle().equals("标记列表-管理")){
+        if(event.getInventory().getHolder()==null)
+            return;
+        if(event.getInventory().getHolder() instanceof AdminGUI) {
+            AdminGUI gui = (AdminGUI) event.getInventory().getHolder();
             event.setCancelled(true);
             Player player = (Player) event.getWhoClicked();
             List<String> markers = Util.getMarkerList(world);
@@ -49,7 +56,7 @@ public class AdminGUIEvent implements Listener {
                 else if (event.isRightClick()){
                     if (marker!=null){
                         DelMarker.delMarkerAdmin(markers.get(event.getRawSlot()),world,player);
-                        AdminGUI.adminGUI(player,"标记列表-管理",world);
+                        gui.ref();
                     }
                 }
             }
